@@ -25,10 +25,10 @@
                 <td>{{ article.Date ? article.Date|date('Y-m-d H:i:s') : '' }}</td>
                 <td>{{ article.Categorie }}</td>
                 <td>{{ article.Auteur }}</td>
-                <td>{{ article.Image }}</td>
+                <td><img src="{{article.Image}}"></td>
                 <td>
-                    <a href="{{ path('app_articles_show', {'id': article.id}) }}">show</a>
-                    <a href="{{ path('app_articles_edit', {'id': article.id}) }}">edit</a>
+                    <a href="{{ path('app_articles_show', {'id': article.id}) }}">Voir</a>
+                    <a href="{{ path('app_articles_edit', {'id': article.id}) }}">Modifier</a>
                 </td>
             </tr>
         {% else %}
@@ -39,5 +39,5 @@
         </tbody>
     </table>
 
-    <a href="{{ path('app_articles_new') }}">Create new</a>
+    <a href="{{ path('app_articles_new') }}">Nouvel article</a>
 {% endblock %}
