@@ -4,7 +4,7 @@
 
 {% block body %}
 {% include "Header.php" %}
-    <h1>Categorie index</h1>
+    <h1>Liste des catégories</h1>
 
     <table class="table">
         <thead>
@@ -28,11 +28,11 @@
             </tr>
         {% else %}
             <tr>
-                <td colspan="5">no records found</td>
+                <td colspan="5">Vide</td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
 
-    <a href="{{ path('app_categorie_new') }}">Create new</a>
+    <a href="{{ path('app_categorie_new') }}">Nouvelle catégorie</a>
 {% endblock %}
