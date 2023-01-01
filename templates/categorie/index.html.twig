@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Categorie index{% endblock %}
+
+{% block body %}
+{% include "Header.php" %}
+    <h1>Categorie index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Nom</th>
+                <th>Date</th>
+                <th>Auteur</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for categorie in categories %}
+            <tr>
+                <td>{{ categorie.Nom }}</td>
+                <td>{{ categorie.Date ? categorie.Date|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ categorie.Auteur }}</td>
+                <td>
+                    <a href="{{ path('app_categorie_show', {'id': categorie.id}) }}">Voir</a>
+                    <a href="{{ path('app_categorie_edit', {'id': categorie.id}) }}">Modifier</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_categorie_new') }}">Create new</a>
+{% endblock %}
