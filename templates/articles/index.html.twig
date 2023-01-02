@@ -26,7 +26,7 @@
                 <td>{{ article.Date ? article.Date|date('Y-m-d H:i:s') : '' }}</td>
                 <td>{{ article.Categorie }}</td>
                 <td>{{ article.Auteur }}</td>
-                <td><img src="{{article.Image}}"></td>
+                <td><img style="max-width:20vw; max-heigth:20vh;" src="{{article.Image}}"></td>
                 <td>
                     <a href="{{ path('app_articles_show', {'id': article.id}) }}">Voir</a>
                     <a href="{{ path('app_articles_edit', {'id': article.id}) }}">Modifier</a>
