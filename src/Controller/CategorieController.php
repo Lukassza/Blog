@@ -29,6 +29,7 @@ class CategorieController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $categorie->setUser($this->getUser());
             $categorieRepository->save($categorie, true);
 
             return $this->redirectToRoute('app_categorie_index', [], Response::HTTP_SEE_OTHER);

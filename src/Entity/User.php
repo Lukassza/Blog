@@ -188,9 +188,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         return $this;
     }
 
-    public function __toString(){
-        return $this->pseudo;
-    }
+   
 
     /**
      * @return Collection<int, Categorie>
@@ -221,7 +219,10 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
         return $this;
     }
-
+    
+    public function __toString(){
+        return $this->pseudo;
+    }
 }
 
 

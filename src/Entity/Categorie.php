@@ -56,17 +56,17 @@ class Categorie
         return $this;
     }
 
-    // public function getUser(): ?User
-    // {
-    //     return $this->User;
-    // }
+    public function getUser(): ?User
+    {
+        return $this->User;
+    }
 
-    // public function setUser(string $User): self
-    // {
-    //     $this->User = $User;
+    public function setUser(string $User): self
+    {
+        $this->User = $User;
 
-    //     return $this;
-    // }
+        return $this;
+    }
 
     public function getCateToUser(): ?User
     {
