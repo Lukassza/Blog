@@ -28,6 +28,7 @@
 							<li class="nav-item">
 								<a class="nav-link" href="/admin">Admin</a>
 							</li>
+							<img src="../Images/ghost.png">
 						</ul>
 						
 					</div>
