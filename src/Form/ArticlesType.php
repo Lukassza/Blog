@@ -5,6 +5,7 @@ namespace App\Form;
 use App\Entity\Articles;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class ArticlesType extends AbstractType
@@ -16,7 +17,6 @@ class ArticlesType extends AbstractType
             ->add('Contenu')
             ->add('Date')
             ->add('Categorie')
-            ->add('Auteur')
             ->add('Image')
         ;
     }

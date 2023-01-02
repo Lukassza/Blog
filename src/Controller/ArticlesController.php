@@ -29,14 +29,17 @@ class ArticlesController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+
+            $article->setUser($this->getUser());
+
             $articlesRepository->save($article, true);
 
             return $this->redirectToRoute('app_articles_index', [], Response::HTTP_SEE_OTHER);
         }
 
-        return $this->renderForm('articles/new.html.twig', [
+        return $this->render('articles/new.html.twig', [
             'article' => $article,
-            'form' => $form,
+            'form' => $form->createView(),
         ]);
     }
 
@@ -69,7 +72,7 @@ class ArticlesController extends AbstractController
     #[Route('/{id}', name: 'app_articles_delete', methods: ['POST'])]
     public function delete(Request $request, Articles $article, ArticlesRepository $articlesRepository): Response
     {
-        if ($this->isCsrfTokenValid('delete'.$article->getId(), $request->request->get('_token'))) {
+        if ($this->isCsrfTokenValid('delete' . $article->getId(), $request->request->get('_token'))) {
             $articlesRepository->remove($article, true);
         }
 

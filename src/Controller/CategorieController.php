@@ -34,9 +34,9 @@ class CategorieController extends AbstractController
             return $this->redirectToRoute('app_categorie_index', [], Response::HTTP_SEE_OTHER);
         }
 
-        return $this->renderForm('categorie/new.html.twig', [
+        return $this->render('categorie/new.html.twig', [
             'categorie' => $categorie,
-            'form' => $form,
+            'form' => $form->createView(),
         ]);
     }
 

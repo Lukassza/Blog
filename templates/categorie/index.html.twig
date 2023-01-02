@@ -20,7 +20,7 @@
             <tr>
                 <td>{{ categorie.Nom }}</td>
                 <td>{{ categorie.Date ? categorie.Date|date('Y-m-d H:i:s') : '' }}</td>
-                <td>{{ categorie.Auteur }}</td>
+                <td>{{ categorie.User }}</td>
                 <td>
                     <a href="{{ path('app_categorie_show', {'id': categorie.id}) }}">Voir</a>
                     <a href="{{ path('app_categorie_edit', {'id': categorie.id}) }}">Modifier</a>

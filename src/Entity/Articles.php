@@ -2,9 +2,9 @@
 
 namespace App\Entity;
 
-use App\Repository\ArticlesRepository;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use App\Repository\ArticlesRepository;
 
 #[ORM\Entity(repositoryClass: ArticlesRepository::class)]
 class Articles
@@ -26,11 +26,12 @@ class Articles
     #[ORM\Column(length: 25)]
     private ?string $Categorie = null;
 
-    #[ORM\Column(length: 25)]
-    private ?string $Auteur = null;
-
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $Image = null;
+
+    #[ORM\ManyToOne(inversedBy: 'articles')]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?User $user = null;
 
     public function getId(): ?int
     {
@@ -85,17 +86,6 @@ class Articles
         return $this;
     }
 
-    public function getAuteur(): ?string
-    {
-        return $this->Auteur;
-    }
-
-    public function setAuteur(string $Auteur): self
-    {
-        $this->Auteur = $Auteur;
-
-        return $this;
-    }
 
     public function getImage(): ?string
     {
@@ -105,6 +95,18 @@ class Articles
     public function setImage(?string $Image): self
     {
         $this->Image = $Image;
+
+        return $this;
+    }
+
+    public function getUser(): ?User
+    {
+        return $this->user;
+    }
+
+    public function setUser(?User $user): self
+    {
+        $this->user = $user;
 
         return $this;
     }

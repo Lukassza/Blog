@@ -14,7 +14,7 @@ class CategorieType extends AbstractType
         $builder
             ->add('Nom')
             ->add('Date')
-            ->add('Auteur')
+            
         ;
     }
 

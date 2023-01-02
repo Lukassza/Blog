@@ -21,7 +21,11 @@ class Categorie
     private ?\DateTimeInterface $Date = null;
 
     #[ORM\Column(length: 25)]
-    private ?string $Auteur = null;
+    private ?User $User = null;
+
+    #[ORM\ManyToOne(inversedBy: 'categories')]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?User $CateToUser = null;
 
     public function getId(): ?int
     {
@@ -52,14 +56,26 @@ class Categorie
         return $this;
     }
 
-    public function getAuteur(): ?string
+    // public function getUser(): ?User
+    // {
+    //     return $this->User;
+    // }
+
+    // public function setUser(string $User): self
+    // {
+    //     $this->User = $User;
+
+    //     return $this;
+    // }
+
+    public function getCateToUser(): ?User
     {
-        return $this->Auteur;
+        return $this->CateToUser;
     }
 
-    public function setAuteur(string $Auteur): self
+    public function setCateToUser(?User $CateToUser): self
     {
-        $this->Auteur = $Auteur;
+        $this->CateToUser = $CateToUser;
 
         return $this;
     }
