@@ -3,6 +3,8 @@
 {% block title %}Nouvelle catégorie{% endblock %}
 
 {% block body %}
+{% include "Header.php" %}
+
     <h1>Création d'une nouvelle catégorie</h1>
 
     {{ include('categorie/_form.html.twig') }}

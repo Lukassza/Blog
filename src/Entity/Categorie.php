@@ -21,7 +21,7 @@ class Categorie
     private ?\DateTimeInterface $Date = null;
 
     #[ORM\Column(length: 25)]
-    private ?User $User = null;
+    private ?User $user = null;
 
     #[ORM\ManyToOne(inversedBy: 'categories')]
     #[ORM\JoinColumn(nullable: false)]
@@ -58,12 +58,12 @@ class Categorie
 
     public function getUser(): ?User
     {
-        return $this->User;
+        return $this->user;
     }
 
-    public function setUser(string $User): self
+    public function setUser(User $user): self
     {
-        $this->User = $User;
+        $this->user = $user;
 
         return $this;
     }

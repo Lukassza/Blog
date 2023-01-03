@@ -51,8 +51,11 @@ class ArticlesController extends AbstractController
         ]);
     }
 
+
+    #[Security("is_granted('ROLE_ADMIN') or (is_granted('ROLE_USER') and user === articles.getUser())", message: "Vous devez être le créateur")]
     #[Route('/{id}/edit', name: 'app_articles_edit', methods: ['GET', 'POST'])]
-    public function edit(Request $request, Articles $article, ArticlesRepository $articlesRepository): Response
+   
+     public function edit(Request $request, Articles $article, ArticlesRepository $articlesRepository): Response
     {
         $form = $this->createForm(ArticlesType::class, $article);
         $form->handleRequest($request);

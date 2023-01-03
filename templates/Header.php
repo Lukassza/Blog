@@ -28,9 +28,9 @@
 							<li class="nav-item">
 								<a class="nav-link" href="/admin">Admin</a>
 							</li>
-							<img src="../Images/ghost.png">
+							<!-- <img src="../Images/ghost.png"> -->
 						</ul>
-						
+						<img src="../Images/ghost.png">
 					</div>
 				</div>
 			</nav>
