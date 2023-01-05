@@ -5,10 +5,11 @@ namespace App\Controller;
 use App\Entity\Articles;
 use App\Form\ArticlesType;
 use App\Repository\ArticlesRepository;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 #[Route('/articles')]
 class ArticlesController extends AbstractController
@@ -52,9 +53,10 @@ class ArticlesController extends AbstractController
     }
 
 
-    #[Security("is_granted('ROLE_ADMIN') or (is_granted('ROLE_USER') and user === articles.getUser())", message: "Vous devez être le créateur")]
+    // #[Security("is_granted('ROLE_ADMIN') or (is_granted('ROLE_USER') and user === article.getUser())", message: "Vous n'êtes pas l'auteur")]
     #[Route('/{id}/edit', name: 'app_articles_edit', methods: ['GET', 'POST'])]
-   
+    #[Security("is_granted('ROLE_ADMIN') or (is_granted('ROLE_USER') and user === article.getUser())", message: "Vous n'êtes pas l'auteur")]
+
      public function edit(Request $request, Articles $article, ArticlesRepository $articlesRepository): Response
     {
         $form = $this->createForm(ArticlesType::class, $article);
